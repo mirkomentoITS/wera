@@ -6,7 +6,7 @@ import '../tokens/typography.dart';
 
 class AppTheme {
 
-  // GRADIENT
+  // GRADIENT LIGHT
   static const lightGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
@@ -14,8 +14,11 @@ class AppTheme {
       LightColors.bgStart,
       LightColors.bgEnd,
     ],
+    stops: [0.0, 1.0],
   );
 
+  
+  // GRADIENT DARK
   static const darkGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
@@ -23,10 +26,11 @@ class AppTheme {
       DarkColors.bgStart,
       DarkColors.bgEnd,
     ],
+    stops: [0.0, 1.0],
   );
   
 
-  // LIGHT
+  // THEME LIGHT
   static final lightTheme = ThemeData(
 
     brightness: Brightness.light,
@@ -48,7 +52,7 @@ class AppTheme {
   );
 
 
-  // DARK
+  // THEME DARK
   static final darkTheme = ThemeData(
 
     brightness: Brightness.dark,
