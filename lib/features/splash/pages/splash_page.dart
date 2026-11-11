@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+import '../../home/pages/home_page.dart';
 import '../../../design/tokens/colors.dart';
 
 
@@ -27,7 +28,7 @@ class _ClockState extends State<SplashPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomePage(),
+          builder: (context) => HomePage(),
         ),
       );
     });

@@ -48,7 +48,10 @@ class AppTheme {
       onError: LightColors.textOnBrand,
     ),
 
-    textTheme: _textTheme(LightColors.textPrimary),
+    textTheme: _textTheme(
+      LightColors.textPrimary,
+      LightColors.textSecondary
+    ),
   );
 
 
@@ -70,12 +73,15 @@ class AppTheme {
       onError: DarkColors.textOnBrand,
     ),
 
-    textTheme: _textTheme(DarkColors.textPrimary),
+    textTheme: _textTheme(
+      DarkColors.textPrimary,
+      DarkColors.textSecondary,
+    ),
   );
 
 
   // TYPOGRAPHY
-  static TextTheme _textTheme(Color color) {
+  static TextTheme _textTheme(Color color, Color secondary) {
     return TextTheme(
 
       headlineLarge: AppTypography.h1.copyWith(color: color),
@@ -84,10 +90,10 @@ class AppTheme {
       titleLarge: AppTypography.h4.copyWith(color: color),
       titleMedium: AppTypography.h5.copyWith(color: color),
 
-      bodyLarge: AppTypography.bodyBig.copyWith(color: color),
-      bodyMedium: AppTypography.body.copyWith(color: color),
-      bodySmall: AppTypography.bodySmall.copyWith(color: color),
-      titleSmall: AppTypography.bodySemiBold.copyWith(color: color),
+      bodyLarge: AppTypography.bodyBig.copyWith(color: secondary),
+      bodyMedium: AppTypography.body.copyWith(color: secondary),
+      bodySmall: AppTypography.bodySmall.copyWith(color: secondary),
+      titleSmall: AppTypography.bodySemiBold.copyWith(color: secondary),
 
       labelLarge: AppTypography.button.copyWith(color: color),
       labelMedium: AppTypography.label.copyWith(color: color),
