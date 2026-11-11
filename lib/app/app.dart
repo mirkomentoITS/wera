@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../design/theme/theme.dart';
-import '../features/splash/page/splash_page.dart';
+import '../features/splash/pages/splash_page.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       home: const SplashPage(),
     );
   }
