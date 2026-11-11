@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class AppTypography {
 
   // FONT FAMILY
-  static const String headingFont = 'Plus Jakarta Sans';
-  static const String bodyFont = 'Plus Jakarta Sans';
-  static const String displayFont = 'Playfair Display';
+  static const String headingFont = 'PlusJakartaSans';
+  static const String bodyFont = 'PlusJakartaSans';
+  static const String displayFont = 'PlayfairDisplay';
 
 
   // DISPLAY

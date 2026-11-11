@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../theme/theme.dart';
 import '../tokens/colors.dart';
+import '../tokens/gradients.dart';
 
 
 class AppScaffold extends StatelessWidget {
@@ -24,8 +24,8 @@ class AppScaffold extends StatelessWidget {
 
     final gradient = 
       isDark ? 
-        AppTheme.darkGradient : 
-        AppTheme.lightGradient;
+        AppGradients.darkBackground : 
+        AppGradients.lightBackground;
 
     final blobColor = 
       isDark ?

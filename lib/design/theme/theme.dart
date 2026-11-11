@@ -6,30 +6,6 @@ import '../tokens/typography.dart';
 
 class AppTheme {
 
-  // GRADIENT LIGHT
-  static const lightGradient = LinearGradient(
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    colors: [
-      LightColors.bgStart,
-      LightColors.bgEnd,
-    ],
-    stops: [0.0, 1.0],
-  );
-
-  
-  // GRADIENT DARK
-  static const darkGradient = LinearGradient(
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    colors: [
-      DarkColors.bgStart,
-      DarkColors.bgEnd,
-    ],
-    stops: [0.0, 1.0],
-  );
-  
-
   // THEME LIGHT
   static final lightTheme = ThemeData(
 
@@ -42,6 +18,8 @@ class AppTheme {
       secondary: LightColors.secondary,
       onSecondary: LightColors.textPrimary,
       surface: LightColors.bgSurface,
+      surfaceContainer: LightColors.bgContainer,
+      surfaceContainerLowest: LightColors.bgDefault,
       onSurface: LightColors.textPrimary,
       outline: LightColors.borderDefault,
       error: LightColors.error,
@@ -67,6 +45,8 @@ class AppTheme {
       secondary: DarkColors.secondary,
       onSecondary: DarkColors.textPrimary,
       surface: DarkColors.bgSurface,
+      surfaceContainer: DarkColors.bgContainer,
+      surfaceContainerLowest: DarkColors.bgDefault,
       onSurface: DarkColors.textPrimary,
       outline: DarkColors.borderDefault,
       error: DarkColors.error,
@@ -87,20 +67,22 @@ class AppTheme {
       headlineLarge: AppTypography.h1.copyWith(color: color),
       headlineMedium: AppTypography.h2.copyWith(color: color),
       headlineSmall: AppTypography.h3.copyWith(color: color),
+
       titleLarge: AppTypography.h4.copyWith(color: color),
       titleMedium: AppTypography.h5.copyWith(color: color),
+      titleSmall: AppTypography.h6.copyWith(color: color),
 
       bodyLarge: AppTypography.bodyBig.copyWith(color: secondary),
       bodyMedium: AppTypography.body.copyWith(color: secondary),
       bodySmall: AppTypography.bodySmall.copyWith(color: secondary),
-      titleSmall: AppTypography.bodySemiBold.copyWith(color: secondary),
 
       labelLarge: AppTypography.button.copyWith(color: color),
       labelMedium: AppTypography.label.copyWith(color: color),
       labelSmall: AppTypography.caption.copyWith(color: color),
       
-      displayLarge: AppTypography.displaySerifL.copyWith(color: color),
-      displayMedium: AppTypography.bodyBoldUppercase.copyWith(color: color),
+      displayLarge: AppTypography.display.copyWith(color: color),
+      displayMedium: AppTypography.displaySerifXL.copyWith(color: color),
+      displaySmall: AppTypography.displaySerifL.copyWith(color: color),
     );
   }
  
