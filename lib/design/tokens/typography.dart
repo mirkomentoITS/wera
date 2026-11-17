@@ -69,6 +69,7 @@ class AppTypography {
     fontFamily: headingFont,
     fontSize: 18,
     fontWeight: FontWeight.w700,
+    height: 1.2,
   );
 
   static const h6 = TextStyle(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../tokens/gradients.dart';
-import '../tokens/spacing.dart';
-import '../tokens/radius.dart';
-import '../tokens/shadows.dart';
+import '../../design/tokens/gradients.dart';
+import '../../design/tokens/shadows.dart';
+import '../../design/tokens/spacing.dart';
+import '../../design/tokens/radius.dart';
 
 
 enum AppButtonStyle {
@@ -18,13 +18,13 @@ class AppButton extends StatelessWidget {
   final String text;
   final IconData? icon;
   final AppButtonStyle style;
-  final VoidCallback? onPressed;
+  final VoidCallback? handleClick;
 
   const AppButton({
     super.key,
     required this.text,
     this.icon,
-    required this.onPressed,
+    required this.handleClick,
     this.style = AppButtonStyle.filled,
   });
 
@@ -75,7 +75,7 @@ class AppButton extends StatelessWidget {
         color: Colors.transparent,
         borderRadius: radius,
         child: InkWell(
-          onTap: onPressed,
+          onTap: handleClick,
           borderRadius: radius,
           child: Padding(
             padding: const EdgeInsets.symmetric(
