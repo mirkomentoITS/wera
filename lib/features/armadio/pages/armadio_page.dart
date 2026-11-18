@@ -52,11 +52,11 @@ class ArmadioPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,  
               children: [   
                 Text(
-                  'Ciao Utente',
+                  'Il mio armadio',
                   style: f.headlineLarge,
                 ),
                 Text(
-                   'Pronto per oggi?',
+                   'Tutti i tuoi capi',
                    style: f.bodyLarge,
                 )
               ],
@@ -143,26 +143,33 @@ class ArmadioPage extends StatelessWidget {
               ],
             ),
             Expanded(
-              child: GridView.builder(
-                itemCount: garments.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: AppSpacing.md,
-                  mainAxisSpacing: AppSpacing.md,
-                  mainAxisExtent: 285, //
+              child: ScrollConfiguration(
+                behavior: ScrollConfiguration.of(context).copyWith(
+                  overscroll: false,
                 ),
-                itemBuilder: (context, i) {
-                  final garment = garments[i];
-                  return CardCapo(
-                    name: garment.nome, 
-                    tagName: garment.tag,
-                    tagIcon: 'assets/icons/tshirt.svg',
-                    isFavorite: false,
-                    toggleFav: () => ('addFavorite()'),
-                    image: 'https://groovemanmusic.com/cdn/shop/files/SpongeBob_Drip.png?v=1762461736&width=883', 
-                    handleClick: () => print('Messaggio'),
-                  );
-                },
+                child: GridView.builder(
+                  clipBehavior: Clip.hardEdge,
+                  physics: const ClampingScrollPhysics(),
+                  itemCount: garments.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: AppSpacing.md,
+                    mainAxisSpacing: AppSpacing.md,
+                    mainAxisExtent: 285, //
+                  ),
+                  itemBuilder: (context, i) {
+                    final garment = garments[i];
+                    return CardCapo(
+                      name: garment.nome, 
+                      tagName: garment.tag,
+                      tagIcon: 'assets/icons/tshirt.svg',
+                      isFavorite: false,
+                      toggleFav: () => ('addFavorite()'),
+                      image: 'https://groovemanmusic.com/cdn/shop/files/SpongeBob_Drip.png?v=1762461736&width=883', 
+                      handleClick: () => print('Messaggio'),
+                    );
+                  },
+                ),
               ),
             ),
           ],

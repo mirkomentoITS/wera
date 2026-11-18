@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../design/theme/theme.dart';
 import '../features/armadio/pages/armadio_page.dart';
+import '../features/profile/pages/profile_page.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
-      home: const ArmadioPage(),
+      home: const ProfilePage(),
     );
   }
 }

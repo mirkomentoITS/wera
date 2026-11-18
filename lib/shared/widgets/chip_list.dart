@@ -28,30 +28,26 @@ class ChipList extends StatelessWidget {
     final c = Theme.of(context).colorScheme;
 
     final chips = filters.map((item) {
-      return Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppRadius.full),
+      return FilterChip(
+        avatar: SvgPicture.asset(
+          item.icon,
+          width: 20,
+          height: 20,
+          colorFilter: ColorFilter.mode(c.primary, BlendMode.srcIn),
         ),
-        child: FilterChip(
-          avatar: SvgPicture.asset(
-            item.icon,
-            width: 20,
-            height: 20,
-            colorFilter: ColorFilter.mode(c.primary, BlendMode.srcIn),
-          ),
-          label: Text(
-            item.label,
-            style: f.labelMedium,
-          ),
-          selected: active == item.label,
-          onSelected: (_) => handleClick(item.label),
-          showCheckmark: false,
-          padding: EdgeInsets.all(AppSpacing.md),
-          backgroundColor: LightColors.lilac,
-          side: BorderSide.none,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppRadius.full),
-          ),
+        label: Text(
+          item.label,
+          style: f.labelMedium,
+        ),
+        selected: active == item.label,
+        onSelected: (_) => handleClick(item.label),
+        showCheckmark: false,
+        padding: EdgeInsets.all(AppSpacing.md),
+        backgroundColor: LightColors.lilac,
+        selectedColor: LightColors.heroEnd,
+        side: BorderSide.none,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppRadius.full),
         ),
       );
     }).toList();

@@ -42,6 +42,7 @@ class CardCapo extends StatelessWidget {
         boxShadow: AppShadows.card(context),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Stack(
             children: [ 
