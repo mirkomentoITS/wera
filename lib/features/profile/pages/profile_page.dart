@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:wera/shared/widgets/heading.dart';
+import 'package:provider/provider.dart';
+
+import '../../../design/theme/theme_controller.dart';
 
 import '../../../design/components/scaffold.dart';
-import '../../../shared/widgets/button.dart';
+import '../../../shared/widgets/heading.dart';
+import '../widgets/setting_tile.dart';
 
 import '../../../design/tokens/colors.dart';
 import '../../../design/tokens/gradients.dart';
@@ -14,11 +17,19 @@ import '../../../design/tokens/shadows.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
+  
+  static final List<Color> favoriteColors = [
+    Colors.orange,
+    Colors.red,
+    Colors.black,
+    Colors.brown,
+  ];
 
   @override
   Widget build(BuildContext context) {
     final f = Theme.of(context).textTheme;
     final c = Theme.of(context).colorScheme;
+    final themeController = context.watch<ThemeController>();
 
     final isDark = 
       Theme.of(context).brightness == Brightness.dark;
@@ -83,9 +94,13 @@ class ProfilePage extends StatelessWidget {
                                   width: 5,
                                 ),
                               ),
-                              child: CircleAvatar(
-                                radius: 55,
-                                backgroundColor: c.surfaceContainer,
+                              child: Container(
+                                width: 110,
+                                height: 110,
+                                decoration: BoxDecoration(
+                                  color: c.surfaceContainer,
+                                  shape: BoxShape.circle,
+                                ),
                                 child: Icon(
                                   Icons.person_outline,
                                   size: 45,
@@ -146,7 +161,6 @@ class ProfilePage extends StatelessWidget {
               showButton: false,
             ),
             Container(
-              height: 100,
               decoration: BoxDecoration(
                 color: c.surface,
                 borderRadius: BorderRadius.circular(AppRadius.xxl),
@@ -154,38 +168,121 @@ class ProfilePage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  ListTile(
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: AppSpacing.md,
-                      horizontal: AppSpacing.xl,
+                  SettingTile(
+                    icon: 'assets/icons/checkroom.svg', 
+                    text: 'Stile preferito',
+                    trailing: Text(
+                      'Casual, Minimal',
+                      style: f.bodyMedium?.copyWith(color: c.onSecondary),
                     ),
-                    leading: SvgPicture.asset(
-                      'assets/icons/checkroom.svg',
-                      colorFilter: ColorFilter.mode(c.primary, BlendMode.srcIn),
-                      width: 28,
-                      height: 28,
-                    ),
-                    title: Row(
-                      spacing: AppSpacing.lg,
-                      children: [
-                        SizedBox(
-                          height: 32,
-                          child: VerticalDivider(
-                            thickness: 1,
-                            color: c.outline,
+                  ),
+                  Divider(
+                    height: 1,
+                    indent: 25,
+                    endIndent: 25,
+                    color: c.outline,
+                  ),
+                  SettingTile(
+                    icon: 'assets/icons/palette.svg', 
+                    text: 'Colori Preferiti',
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      spacing: AppSpacing.xs,
+                      children: favoriteColors.map((color) {
+                        return Container(
+                          width: 22,
+                          height: 22,
+                          decoration: BoxDecoration(
+                            color: color,
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: c.outline,
+                              width: 1,
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Stile preferito',
-                          style: f.bodyMedium,
-                        ),
-                      ],
+                        );
+                      }).toList(),
                     ),
-                    onTap: () => print('click impostazione'),
+                  ),   
+                ],
+              ),
+            ),
+            Heading(
+              text: 'Impostazioni',
+              showButton: false,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: c.surface,
+                borderRadius: BorderRadius.circular(AppRadius.xxl),
+                boxShadow: AppShadows.card(context),
+              ),
+              child: Column(
+                children: [
+                  SettingTile(
+                    icon: 'assets/icons/moon.svg', 
+                    text: 'Tema scuro',
+                    trailing: Switch(
+                      activeTrackColor: c.outline,
+                      inactiveTrackColor: c.outline,
+                      activeThumbColor: c.onPrimary,
+                      inactiveThumbColor: c.onPrimary,
+                      value: themeController.isDark,
+                      onChanged: (value) {
+                        themeController.toggleTheme();
+                      },
+                    ),
+                  ),
+                  Divider(
+                    height: 1,
+                    indent: 25,
+                    endIndent: 25,
+                    color: c.outline,
+                  ),
+                  SettingTile(
+                    icon: 'assets/icons/info.svg', 
+                    text: 'Informazioni sull app',
+                    trailing: IconButton(
+                      icon: SvgPicture.asset(
+                        'assets/icons/chevron-right.svg',
+                        width: 25,
+                        height: 25,
+                      ),
+                      onPressed: () => print('cliccato'), 
+                    ),
+                  ),
+                  Divider(
+                    height: 1,
+                    indent: 25,
+                    endIndent: 25,
+                    color: c.outline,
+                  ),
+                  SettingTile(
+                    icon: 'assets/icons/door.svg', 
+                    text: 'Esci dall account',
+                    trailing: IconButton(
+                      icon: SvgPicture.asset(
+                        'assets/icons/chevron-right.svg',
+                        width: 25,
+                        height: 25,
+                      ),
+                      onPressed: () => print('cliccato'), 
+                    ),
+                  ),
+                  Divider(
+                    height: 1,
+                    indent: 25,
+                    endIndent: 25,
+                    color: c.outline,
+                  ),
+                  SettingTile(
+                    icon: 'assets/icons/trash.svg', 
+                    text: 'Elimina account',
+                    color: c.error,
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
