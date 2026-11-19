@@ -6,15 +6,16 @@ import '../models/chip_item.dart';
 import '../../design/tokens/colors.dart';
 import '../../design/tokens/spacing.dart';
 import '../../design/tokens/radius.dart';
+import '../../design/tokens/shadows.dart';
 
 
-class ChipList extends StatelessWidget {
+class ChipGarments extends StatelessWidget {
   final List<ChipItem> filters;
   final String? active;
   final ValueChanged<String?> handleClick;
   final bool scrollable;
 
-  const ChipList({
+  const ChipGarments({
     super.key,
     required this.filters,
     required this.active,
@@ -28,26 +29,37 @@ class ChipList extends StatelessWidget {
     final c = Theme.of(context).colorScheme;
 
     final chips = filters.map((item) {
-      return FilterChip(
-        avatar: SvgPicture.asset(
-          item.icon,
-          width: 20,
-          height: 20,
-          colorFilter: ColorFilter.mode(c.primary, BlendMode.srcIn),
+      final isSelected = active == item.label;
+
+      return Container(
+        decoration: BoxDecoration(
+          boxShadow: isSelected ? AppShadows.button(context) : null
         ),
-        label: Text(
-          item.label,
-          style: f.labelMedium,
-        ),
-        selected: active == item.label,
-        onSelected: (_) => handleClick(item.label),
-        showCheckmark: false,
-        padding: EdgeInsets.all(AppSpacing.md),
-        backgroundColor: LightColors.lilac,
-        selectedColor: LightColors.heroEnd,
-        side: BorderSide.none,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppRadius.full),
+        child: FilterChip(
+          avatar: SvgPicture.asset(
+            item.icon,
+            width: 20,
+            height: 20,
+            colorFilter: ColorFilter.mode(
+              isSelected ? c.onPrimary : c.primary, BlendMode.srcIn
+            ),
+          ),
+          label: Text(
+            item.label,
+            style: f.labelMedium?.copyWith(
+              color: isSelected ? c.onPrimary : c.primary
+            ),
+          ),
+          selected: isSelected,
+          onSelected: (_) => handleClick(item.label),
+          showCheckmark: false,
+          padding: EdgeInsets.all(AppSpacing.md),
+          backgroundColor: LightColors.lilac,
+          selectedColor: c.primary,
+          side: BorderSide.none,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppRadius.full),
+          ),
         ),
       );
     }).toList();
