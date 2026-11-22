@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../design/components/scaffold.dart';
-import '../../../shared/widgets/chip_garments.dart';
+import '../../../shared/widgets/chip_items.dart';
 import '../../../shared/models/chip_item.dart';
 import '../widgets/card_capo.dart';
 
@@ -116,7 +116,7 @@ class ArmadioPage extends StatelessWidget {
                 ),
               ],
             ),
-            ChipGarments(
+            ChipItems(
               active: 'Magliette', 
               handleClick: (category) => print('Cliccato: $category'),
               filters: [ 

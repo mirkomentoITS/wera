@@ -4,7 +4,7 @@ import '../../../design/components/scaffold.dart';
 import '../../../shared/widgets/back_navigator.dart';
 import '../widgets/garment_picker.dart';
 import '../../../shared/widgets/input.dart';
-import '../../../shared/widgets/chip_garments.dart';
+import '../../../shared/widgets/chip_items.dart';
 import '../../../shared/models/chip_item.dart';
 import '../../../shared/widgets/chip_colors.dart';
 import '../../../shared/models/chip_color.dart';
@@ -18,9 +18,6 @@ class CapoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final f = Theme.of(context).textTheme;
-    final c = Theme.of(context).colorScheme;
-
     return AppScaffold(
       body: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(
@@ -52,7 +49,7 @@ class CapoPage extends StatelessWidget {
                       'CATEGORIA',
                       style: AppTypography.bodyBoldUppercase,
                     ),
-                    ChipGarments(
+                    ChipItems(
                       scrollable: false,
                       active: 'Maglietta', 
                       handleClick: (category) => print('Cliccato: $category'),
@@ -140,7 +137,7 @@ class CapoPage extends StatelessWidget {
                       'STILE',
                       style: AppTypography.bodyBoldUppercase,
                     ),
-                    ChipGarments(
+                    ChipItems(
                       scrollable: false,
                       active: 'Casual', 
                       handleClick: (category) => print('Cliccato: $category'),
@@ -167,7 +164,7 @@ class CapoPage extends StatelessWidget {
                       'STAGIONI',
                       style: AppTypography.bodyBoldUppercase,
                     ),
-                    ChipGarments(
+                    ChipItems(
                       scrollable: false,
                       active: 'Primavera', 
                       handleClick: (category) => print('Cliccato: $category'),

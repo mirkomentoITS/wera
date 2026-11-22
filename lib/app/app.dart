@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../design/theme/theme.dart';
 import '../design/theme/theme_controller.dart';
 
-import '../features/capo/pages/capo_page.dart';
+import '../navigation/main_navigation.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: themeController.themeMode,
       themeAnimationDuration: Duration.zero,
-      home: const CapoPage(),
+      home: const MainNavigation(),
     );
   }
 }

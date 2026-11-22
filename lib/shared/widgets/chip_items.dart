@@ -9,28 +9,36 @@ import '../../design/tokens/radius.dart';
 import '../../design/tokens/shadows.dart';
 
 
-class ChipGarments extends StatelessWidget {
+class ChipItems extends StatelessWidget {
   final List<ChipItem> filters;
   final String? active;
   final ValueChanged<String?> handleClick;
   final bool scrollable;
 
-  const ChipGarments({
+  const ChipItems({
     super.key,
     required this.filters,
     required this.active,
     required this.handleClick,
     this.scrollable = true,
   });
+  
 
   @override
   Widget build(BuildContext context) {
     final f = Theme.of(context).textTheme;
     final c = Theme.of(context).colorScheme;
 
+    final isDark = 
+      Theme.of(context).brightness == Brightness.dark;
+
+    final blobColor = 
+      isDark ?
+        DarkColors.blob :
+        LightColors.blob;
+
     final chips = filters.map((item) {
       final isSelected = active == item.label;
-
       return Container(
         decoration: BoxDecoration(
           boxShadow: isSelected ? AppShadows.button(context) : null
@@ -54,7 +62,7 @@ class ChipGarments extends StatelessWidget {
           onSelected: (_) => handleClick(item.label),
           showCheckmark: false,
           padding: EdgeInsets.all(AppSpacing.md),
-          backgroundColor: LightColors.lilac,
+          backgroundColor: isDark ? DarkColors.lilac : LightColors.lilac,
           selectedColor: c.primary,
           side: BorderSide.none,
           shape: RoundedRectangleBorder(
