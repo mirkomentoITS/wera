@@ -18,6 +18,8 @@ class _MainNavigationState extends State<MainNavigation> {
   int selectedIndex = 0;
 
   final pages = const [
+    Scaffold(), 
+    Scaffold(),  
     ArmadioPage(),
     CapoPage(),
     ProfilePage(),

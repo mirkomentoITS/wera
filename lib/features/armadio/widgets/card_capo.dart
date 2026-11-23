@@ -57,7 +57,7 @@ class CardCapo extends StatelessWidget {
                 right: 5,
                 child: IconButton(
                   icon: SvgPicture.asset(
-                    isFavorite ? 'assets/icons/favorite_filled.svg'
+                    isFavorite ? 'assets/icons/favorite-filled.svg'
                                : 'assets/icons/favorite.svg',
                     colorFilter: ColorFilter.mode(c.onSecondary, BlendMode.srcIn),
                   ),

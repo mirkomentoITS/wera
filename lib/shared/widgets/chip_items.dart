@@ -43,8 +43,8 @@ class ChipItems extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: isSelected ? AppShadows.button(context) : null
         ),
-        child: FilterChip(
-          avatar: SvgPicture.asset(
+        child: FilterChip(              // il filtro deve essere multiplo
+          avatar: SvgPicture.asset(     // devo poter selezionare piu chip
             item.icon,
             width: 20,
             height: 20,

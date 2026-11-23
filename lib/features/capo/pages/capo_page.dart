@@ -9,6 +9,7 @@ import '../../../shared/models/chip_item.dart';
 import '../../../shared/widgets/chip_colors.dart';
 import '../../../shared/models/chip_color.dart';
 
+import '../../../design/tokens/colors.dart';
 import '../../../design/tokens/typography.dart';
 import '../../../design/tokens/spacing.dart';
 
@@ -90,39 +91,39 @@ class CapoPage extends StatelessWidget {
                       colors: [ 
                         ChipColor(
                           label: 'Nero',
-                          color: Colors.black,
+                          color: WardrobeColors.nero,
                         ),
                         ChipColor(
                           label: 'Bianco',
-                          color: Colors.white,
+                          color: WardrobeColors.bianco,
                         ),
                         ChipColor(
                           label: 'Grigio',
-                          color: Colors.grey,
+                          color: WardrobeColors.grigio,
                         ),
                         ChipColor(
                           label: 'Brown',
-                          color: Colors.brown,
+                          color: WardrobeColors.marrone,
                         ),
                         ChipColor(
                           label: 'Blu',
-                          color: Colors.blue,
+                          color: WardrobeColors.blu,
                         ),
                         ChipColor(
                           label: 'Verde',
-                          color: Colors.green,
+                          color: WardrobeColors.verde,
                         ),
                         ChipColor(
                           label: 'Rosso',
-                          color: Colors.red,
+                          color: WardrobeColors.rosso,
                         ),
                         ChipColor(
                           label: 'Giallo',
-                          color: Colors.yellow,
+                          color: WardrobeColors.giallo,
                         ),
                         ChipColor(
                           label: 'Viola',
-                          color: Colors.purple,
+                          color: WardrobeColors.viola,
                         ),
                       ], 
                     ),
@@ -175,11 +176,11 @@ class CapoPage extends StatelessWidget {
                         ),
                         ChipItem(
                           label: 'Estate',
-                          icon: 'assets/icons/wb-sunny.svg',
+                          icon: 'assets/icons/sunny.svg',
                         ),  
                         ChipItem(
                           label: 'Autunno',
-                          icon: 'assets/icons/sunny.svg',
+                          icon: 'assets/icons/autumn.svg',
                         ),  
                         ChipItem(
                           label: 'Inverno',
