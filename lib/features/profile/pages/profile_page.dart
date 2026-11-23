@@ -126,8 +126,6 @@ class ProfilePage extends StatelessWidget {
                                   padding: EdgeInsets.all(6),
                                   icon: SvgPicture.asset(
                                     'assets/icons/photo-camera.svg',
-                                    width: 205, // correggi
-                                    height: 205, // correggi
                                     colorFilter: ColorFilter.mode(c.onPrimary, BlendMode.srcIn),
                                   ),                                  
                                   onPressed: () => print('cambia foto'),

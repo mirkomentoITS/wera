@@ -39,9 +39,9 @@ class _MainNavigationState extends State<MainNavigation> {
           children: pages,
         ),
         Positioned(
-          left: 20,
-          right: 20,
-          bottom: MediaQuery.paddingOf(context).bottom + 15,
+          left: 0,
+          right: 0,
+          bottom: MediaQuery.paddingOf(context).bottom,
           child: BottomNavigator(
             selectedIndex: selectedIndex,
             onTap: changePage,

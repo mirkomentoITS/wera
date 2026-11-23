@@ -53,7 +53,7 @@ class ChipColors extends StatelessWidget {
         selectedColor: c.secondary,
         side: BorderSide(
           color: isSelected ? c.primary : c.outline,
-          width: isSelected ? 2 : 2,
+          width: isSelected ? 2 : 1,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppRadius.full),
